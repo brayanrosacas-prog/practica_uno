@@ -1,0 +1,36 @@
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>
+        Alta de Carreras
+      </ion-title>
+      <ion-button color="primary" size="small" default href="home">Atrás</ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+
+
+
+  <ion-content class="ion-padding">
+
+
+    <ion-list>
+
+      <ion-item>
+        <ion-input label="Nombre de la carrera *" labelPlacement="floating" [(ngModel)]="carreras.nombre" type = "text">
+        </ion-input>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-select label="Grado académico *" labelPlacement="floating" [(ngModel)]="carreras.tipo" >
+        <ion-select-option value="Licenciatura">Licenciatura</ion-select-option>
+        <ion-select-option value="Maestría">Maestría</ion-select-option>  
+        <ion-select-option value="Ingeniería">Ingeniería(Licenciatura)</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+     
+    </ion-list>
+    <ion-button expand="block" (click)="validarGuardar()">Guardar</ion-button>
+  </ion-content>

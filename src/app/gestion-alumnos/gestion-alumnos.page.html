@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>
+      Gestión de Alumnos
+    </ion-title>
+    <ion-button color="primary" size="small" default href="home">Atrás</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="ion-padding">
+
+
+  <ion-list>
+
+    <ion-item>
+      <ion-input label="Número de Control *" labelPlacement="floating" [(ngModel)]="alumnos.n_control" Type = "text">
+      </ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-input label="Nombre *" labelPlacement="floating" [(ngModel)]="alumnos.nombre" Type = "text">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Apellido Paterno *" labelPlacement="floating" [(ngModel)]="alumnos.apat" Type = "text">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Apellido Materno *" labelPlacement="floating" [(ngModel)]="alumnos.amat" Type = "text">
+      </ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-input label="fecha de nacimiento" labelPlacement="stacked" [(ngModel)]="alumnos.fecha_nac" Type = "date" >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!--La etiqueta ion-select permite crear un menú desplegable visual para seleccionar el género del alumno. -->
+      <!--La propiedad labelPlacement="fixed" le da un formato estandár al resto del texto del formulario -->
+      <ion-select label="Género" labelPlacement="fixed" [(ngModel)]="alumnos.genero" >
+        <ion-select-option value="M">Masculino</ion-select-option>
+        <ion-select-option value="F" >Femenino </ion-select-option>
+      </ion-select>
+    </ion-item>
+   
+    <ion-item>
+      <ion-select label="carrera"labelPlacement="floating" [(ngModel)]="alumnos.fk_caralu">
+        @for (carrera of lista_carreras; track carrera.id){
+          <ion-select-option [value]="carrera.id">
+            {{carrera.nombre}}
+          </ion-select-option>
+        }
+      </ion-select>
+    </ion-item> 
+  </ion-list>
+  <ion-button expand="block" (click)="validarGuardar()">Guardar</ion-button>
+</ion-content>
