@@ -10,8 +10,11 @@ workflows:
         script: npm install
       - name: Compilar proyecto web
         script: npm run build
-      - name: Sincronizar iOS
-        script: npx cap sync ios
+      - name: Sincronizar iOS y generar Workspace
+        script: |
+          npx cap sync ios
+          cd ios/App
+          pod install
       - name: Construir archivo IPA sin firma
         script: |
           cd ios/App
