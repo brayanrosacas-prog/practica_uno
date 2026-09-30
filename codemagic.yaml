@@ -10,15 +10,12 @@ workflows:
         script: npm install
       - name: Compilar proyecto web
         script: npm run build
-      - name: Sincronizar iOS y generar Workspace
-        script: |
-          npx cap sync ios
-          cd ios/App
-          pod install
+      - name: Sincronizar iOS
+        script: npx cap sync ios
       - name: Construir archivo IPA sin firma
         script: |
           cd ios/App
-          xcodebuild build -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos SYMROOT=$(PWD)/build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+          xcodebuild build -project App.xcodeproj -scheme App -configuration Release -sdk iphoneos SYMROOT=$(PWD)/build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
           mkdir -p build/Payload
           cp -R build/Release-iphoneos/App.app build/Payload/
           cd build
