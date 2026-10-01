@@ -28,7 +28,7 @@ export class RegistroPage implements OnInit {
   guardarDatos() {
     this.mensajeServidor = ''; 
 
-    const urlAPI = 'http://localhost/api_ionic/registro.php';
+    const urlAPI = 'http://192.168.100.250/api_ionic/registro.php';
 
     this.http.post(urlAPI, this.usuario).subscribe({
       next: (respuesta: any) => {

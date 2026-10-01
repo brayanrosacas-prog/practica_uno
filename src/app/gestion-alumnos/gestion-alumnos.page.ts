@@ -27,7 +27,7 @@ export class GestionAlumnosPage implements OnInit {
 
   // 3. Función que descarga los datos desde PHP
   cargarCarreras() {
-    const urlObtener = 'http://localhost/api_ionic/obtener_carreras.php';
+    const urlObtener = 'http://192.168.100.250/api_ionic/obtener_carreras.php';
     
     this.http.get(urlObtener).subscribe({
       next: (respuesta: any) => {
@@ -86,7 +86,7 @@ export class GestionAlumnosPage implements OnInit {
 
 
     // 2. Definir la ruta de tu nuevo archivo PHP para la gestión de alumnos
-    const urlAPI = 'http://localhost/api_ionic/gestion_alumnos.php';
+    const urlAPI = 'http://192.168.100.250/api_ionic/gestion_alumnos.php';
 
     // 3. Enviar los datos por POST y escuchar la respuesta del servidor
     this.http.post(urlAPI, this.alumnos).subscribe({
