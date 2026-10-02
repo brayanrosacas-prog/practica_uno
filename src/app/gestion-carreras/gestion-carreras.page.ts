@@ -48,7 +48,7 @@ export class GestionCarrerasPage implements OnInit {
     console.log('Datos listos para enviar:', this.carreras);
 
     // 2. Definir la ruta de tu nuevo archivo PHP para la gestión de alumnos
-    const urlAPI = 'http://192.168.100.250/api_ionic/gestion_carreras.php';
+    const urlAPI = 'http://laptop-vsul10aq.local/api_ionic/gestion_carreras.php';
 
     // 3. Enviar los datos por POST y escuchar la respuesta del servidor
     this.http.post(urlAPI, this.carreras).subscribe({
