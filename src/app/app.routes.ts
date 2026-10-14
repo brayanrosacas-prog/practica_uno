@@ -26,4 +26,8 @@ export const routes: Routes = [
     path: 'gestion-carreras',
     loadComponent: () => import('./gestion-carreras/gestion-carreras.page').then( m => m.GestionCarrerasPage)
   },
+  {
+    path: 'menu',
+    loadComponent: () => import('./menu/menu.page').then( m => m.MenuPage)
+  },
 ];

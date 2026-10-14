@@ -1,15 +1,76 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Mi primera app 23221076 </ion-title>
-   
+    <ion-title>Iniciar Sesión</ion-title>
   </ion-toolbar>
+
+  
 </ion-header>
- 
-  <ion-content class="ion-padding">
-    <h2> En mis vacaciones de verano sólo me dediqué a trabajar e ir al gimnasio.</h2>
-    <p>Esta es mi primera app.</p>
-    <ion-button href="detalle"> Ir a Detalle</ion-button>
-    <ion-button href="registro"> Ir a registro</ion-button>
-    <ion-button href="gestion-alumnos"> Gestión alumnos</ion-button>
-    <ion-button href="gestion-carreras"> Gestión carreras</ion-button>
-  </ion-content>
+
+<ion-content class="ion-padding">
+  <!-- Reemplazamos tu div "login-container" por el "form_container" del diseño -->
+  <form class="form_container">
+    
+    <div class="logo_container"></div>
+    <div class="title_container">
+      <p class="title">Bienvenido de nuevo</p>
+      <span class="subtitle">Ingresa tus credenciales y la IP del servidor para conectarte.</span>
+    </div>
+    <br>
+
+    <!-- Campo: IP del Servidor -->
+    <div class="input_container">
+      <label class="input_label" for="ip_field">IP del Servidor</label>
+      <ion-icon name="server-outline" class="icon"></ion-icon>
+      <!-- IMPORTANTE: Al usar [(ngModel)] dentro de un <form>, Angular exige el atributo "name" -->
+      <ion-input 
+        id="ip_field"
+        class="input_field"
+        type="text" 
+        placeholder="Ej. 192.168.1.75" 
+        name="ip"
+        [(ngModel)]="ipServidor">
+      </ion-input>
+    </div>
+
+    <!-- Campo: Correo -->
+    <div class="input_container">
+      <label class="input_label" for="email_field">Correo</label>
+      <ion-icon name="mail-outline" class="icon"></ion-icon>
+      <ion-input 
+        id="email_field"
+        class="input_field"
+        type="email" 
+        placeholder="ejemplo@correo.com" 
+        name="correo"
+        [(ngModel)]="usuario.correo">
+      </ion-input>
+    </div>
+
+    <!-- Campo: Contraseña -->
+    <div class="input_container">
+      <label class="input_label" for="password_field">Contraseña</label>
+      <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+      <ion-input 
+        id="password_field"
+        class="input_field"
+        type="password" 
+        placeholder="Tu contraseña" 
+        name="contra"
+        [(ngModel)]="usuario.contra">
+      </ion-input>
+    </div>
+
+    <!-- Botón Principal con tu lógica -->
+    <ion-button expand="block" class="sign-in_btn ion-margin-top" (click)="login()">
+      Entrar
+    </ion-button>
+
+   <div class="ion-text-center ion-margin-top">
+      <p>¿No tienes una cuenta?</p>
+      <ion-button fill="clear" routerLink="/registro">
+        ¡Regístrate!
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>

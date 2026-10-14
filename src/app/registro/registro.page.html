@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-title>Registro del alumno</ion-title>
-    <ion-button color="primary" size="small" default href="home">Atrás</ion-button>
+    <ion-button color="primary" size="small" (click)="regresar()" >Atrás</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -35,10 +35,36 @@
         labelPlacement="floating" [(ngModel)]="usuario.correo" type ="text">
       </ion-input>
     </ion-item>
+  
+
+
+    <ion-item>
+      <ion-input
+        label="Contraseña: "
+        labelPlacement="floating" [(ngModel)]="usuario.contrasenia" type ="password">
+        <ion-input-password-toggle slot="end" ></ion-input-password-toggle >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Confirmar contraseña: "
+        labelPlacement="floating" [(ngModel)]="usuario.confirmarPassword" type ="password">
+        <ion-input-password-toggle slot="end" ></ion-input-password-toggle >
+      </ion-input>
+    </ion-item>
+    
+
+
+
+
   </ion-list>
 
+  
+
+
   <ion-button expand="block" class="ion-margin-top" (click)="guardarDatos()">
-    Guardar
+  Guardar
   </ion-button>
   
 </ion-content>
