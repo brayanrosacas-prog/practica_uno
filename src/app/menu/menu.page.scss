@@ -7,6 +7,25 @@
   transform: translateY(-50%);
 }
 
+#container a {
+  text-decoration: none;
+}
+
+/* =========================================
+   1. ESTILOS POR DEFECTO (MODO CLARO)
+   ========================================= */
+.login-container {
+  background-color: #ffffff; /* Fondo blanco */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+ion-input {
+  --color: #111111; /* Texto oscuro al escribir */
+  --placeholder-color: #8c8c8c; /* Placeholder gris */
+  color: #333333; /* Etiquetas oscuras */
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -16,24 +35,30 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-  color: #555555; /* Gris más oscuro para mejor lectura */
+  color: #555555; /* Párrafo gris */
   margin: 0;
 }
 
-#container a {
-  text-decoration: none;
-}
-
-.login-container {
-  background-color: #ffffff; /* Asegura que el fondo de la tarjeta sea blanco */
-  color: #333333; /* Fuerza el texto general a oscuro */
-  padding: 20px;
-  border-radius: 10px; /* Redondea los bordes */
-}
-
-/* Forzar colores oscuros y legibles en los campos de Ionic */
-ion-input {
-  --color: #111111 !important; /* Color del texto exacto que el usuario está escribiendo */
-  --placeholder-color: #8c8c8c !important; /* Color del texto de ejemplo transparente */
-  color: #333333 !important; /* Color de las etiquetas flotantes (Correo, Contraseña) */
+/* =========================================
+   2. ADAPTACIÓN AUTOMÁTICA (MODO OSCURO)
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  .login-container {
+    background-color: #1e1e1e; /* Fondo de la tarjeta en gris oscuro */
+    color: #ffffff;
+  }
+  
+  ion-input {
+    --color: #ffffff; /* Texto blanco al escribir */
+    --placeholder-color: #aaaaaa; /* Texto de ejemplo en gris claro */
+    color: #ffffff; /* Etiquetas blancas */
+  }
+  
+  #container strong {
+    color: #ffffff; /* Título blanco */
+  }
+  
+  #container p {
+    color: #cccccc; /* Párrafo en gris claro */
+  }
 }
